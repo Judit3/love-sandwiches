@@ -88,7 +88,6 @@ def update_worksheet(data, worksheet):
     print(f"{worksheet} worksheet updated successfully.\n")
 
 
-
 def calculate_surplus_data(sales_row):
     """
     Compare sales with stock and calculate the surplus for each item type.
@@ -107,6 +106,16 @@ def calculate_surplus_data(sales_row):
         surplus_data.append(surplus)
 
     return surplus_data
+
+
+def get_last_5_entries_sales():
+    """
+    Collects collums of data from sales worksheet, 
+    collecting the last 5 entries for each sandwitch 
+    and returns the data as a list of lists.
+    """
+    sales = SEET.worksheet("sales")
+    column = sales.col values()
 
 def main():
     """
