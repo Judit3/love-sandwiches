@@ -52,31 +52,28 @@ def validate_data(values):
         return False
 
     return True
-"""
-After refactoring these 2 functions into update_worksheet function, they can be dleted, I just keep them as a reminder of how refactoring was made.
 
-def update_sales_worksheet(data):
-    """
-    """
-    Update sales worksheet, add new row with the list data provided.
-    """
-    """
-    print("Update sales worksheet...\n")
-    sales_worksheet = SHEET.worksheet("sales")
-    sales_worksheet.append_row(data)
-    print("Sales worksheet updated successfully.\n")
+# After refactoring these 2 functions into update_worksheet function, they can be dleted, I just keep them as a reminder of how refactoring was made.
 
-def update_surplus_worksheet(data):
-    """
-    """
-    Update surplus worksheet, add new row with the list data provided.
-    """
-    """
-    print("Update surplus worksheet...\n")
-    surplus_worksheet = SHEET.worksheet("surplus")
-    surplus_worksheet.append_row(data)
-    print("Surplus worksheet updated successfully.\n")
-"""
+# def update_sales_worksheet(data):
+   # """
+    #Update sales worksheet, add new row with the list data provided.
+    #"""
+    #print("Update sales worksheet...\n")
+    #sales_worksheet = SHEET.worksheet("sales")
+    #sales_worksheet.append_row(data)
+    #print("Sales worksheet updated successfully.\n")
+
+#def update_surplus_worksheet(data):
+    #"""
+    #Update surplus worksheet, add new row with the list data provided.
+    #"""
+   # print("Update surplus worksheet...\n")
+    #surplus_worksheet = SHEET.worksheet("surplus")
+    #surplus_worksheet.append_row(data)
+    #print("Surplus worksheet updated successfully.\n")
+
+
 def update_worksheet(data, worksheet):
     """
     Receives a list of integers to be inserted into a worksheet.
@@ -114,8 +111,16 @@ def get_last_5_entries_sales():
     collecting the last 5 entries for each sandwitch 
     and returns the data as a list of lists.
     """
-    sales = SEET.worksheet("sales")
-    column = sales.col values()
+    sales = SHEET.worksheet("sales")
+
+    columns = []
+    for ind in range(1, 7):
+        column = sales.col_values(ind)
+        columns.append(column[-5:])
+    
+    return columns
+
+   
 
 def main():
     """
@@ -128,9 +133,9 @@ def main():
     update_worksheet(new_surplus_data, "surplus")
 
 
-print("wellcome to Love Sandwiches data automation")
-main()
+print("Wellcome to Love Sandwiches Data Automation")
+# main()
 
-
+sales_columns = get_last_5_entries_sales()
 
 
